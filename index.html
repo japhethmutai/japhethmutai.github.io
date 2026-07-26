@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japheth Mutai - Product Engineer | Technical Lead | Full-Stack Developer</title>
+<meta name="description" content="Japheth Mutai is a Product Engineer, Technical Lead, and Full-Stack Developer with 10+ years building SaaS platforms, business automation systems, and web, mobile, and desktop applications.">
+<link rel="icon" href="data:,">
+<style>
+  :root{
+    --navy:#1F3864;
+    --navy-dark:#152747;
+    --navy-darker:#0A1220;
+    --accent:#4472A8;
+    --teal:#56D6C7;
+    --text:#232323;
+    --gray:#585858;
+    --light-gray:#8A8A8A;
+    --pale:#F4F6FA;
+    --white:#ffffff;
+    --tagline:#C9D6E8;
+    --max-w:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:1.55;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
+  section{padding:72px 0;}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(21,39,71,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(86,214,199,0.25);
+  }
+  header.nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:14px;padding-bottom:14px;
+  }
+  .brand{color:#fff;font-weight:700;letter-spacing:0.5px;font-size:15px;}
+  nav.links{display:flex;gap:26px;}
+  nav.links a{color:var(--tagline);font-size:13.5px;font-weight:500;transition:color .15s;}
+  nav.links a:hover{color:var(--teal);}
+  .nav-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:linear-gradient(135deg,var(--navy-darker) 0%,var(--navy) 100%);
+    color:#fff;padding:76px 0 64px;
+    text-align:center;
+  }
+  .hero .photo-ring{
+    width:150px;height:150px;border-radius:50%;
+    border:2px solid var(--teal);
+    padding:6px;margin:0 auto 22px;
+  }
+  .hero .photo-ring img{border-radius:50%;width:100%;height:100%;object-fit:cover;}
+  .hero h1{font-size:2.2rem;font-weight:700;letter-spacing:0.5px;margin-bottom:8px;}
+  .hero .tagline{color:var(--tagline);font-size:1.05rem;margin-bottom:26px;}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+  .btn{
+    display:inline-block;padding:11px 22px;border-radius:6px;font-size:14px;font-weight:600;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .btn-primary{background:var(--teal);color:var(--navy-darker);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(86,214,199,0.3);}
+  .btn-outline{border:1px solid var(--teal);color:#fff;}
+  .btn-outline:hover{background:rgba(86,214,199,0.1);transform:translateY(-2px);}
+  .stat-row{
+    display:flex;justify-content:center;gap:0;flex-wrap:wrap;
+    max-width:600px;margin:0 auto;
+  }
+  .stat-row .stat{flex:1;min-width:130px;padding:0 18px;border-left:1px solid rgba(86,214,199,0.3);}
+  .stat-row .stat:first-child{border-left:none;}
+  .stat-num{font-size:1.6rem;font-weight:700;color:#fff;}
+  .stat-label{font-size:11px;letter-spacing:0.6px;color:var(--tagline);text-transform:uppercase;margin-top:2px;}
+
+  /* ---------- section headings ---------- */
+  .tag{
+    color:var(--accent);font-weight:700;font-size:12px;letter-spacing:1.5px;
+    text-transform:uppercase;margin-bottom:6px;
+  }
+  h2.title{color:var(--navy);font-size:1.7rem;font-weight:700;margin-bottom:10px;}
+  .rule{width:52px;height:3px;background:var(--teal);margin-bottom:22px;border-radius:2px;}
+  .lede{color:var(--gray);font-size:0.98rem;max-width:640px;margin-bottom:30px;}
+
+  /* ---------- about ---------- */
+  #about{background:var(--white);}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start;}
+  .skills-box h3{font-size:13px;color:var(--accent);font-weight:700;margin:14px 0 4px;text-transform:uppercase;letter-spacing:0.4px;}
+  .skills-box h3:first-child{margin-top:0;}
+  .skills-box p{font-size:14px;color:var(--text);}
+
+  /* ---------- products ---------- */
+  #products{background:var(--pale);}
+  .product-card{
+    background:#fff;border-radius:10px;overflow:hidden;
+    box-shadow:0 2px 14px rgba(31,56,100,0.08);
+    display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:32px;
+    border:1px solid #E5E9F0;
+  }
+  .product-card:nth-child(odd) .product-media{order:1;}
+  .product-media{
+    background:var(--navy-darker);display:flex;align-items:center;justify-content:center;
+    padding:22px;gap:12px;overflow:hidden;flex-wrap:wrap;
+  }
+  .product-media img{border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,0.35);max-height:280px;max-width:100%;width:auto;object-fit:contain;}
+  .product-media.two-up img{max-width:calc(50% - 6px);height:auto;}
+  .product-body{padding:30px 32px;}
+  .product-body h3{font-size:1.3rem;color:var(--navy);margin-bottom:4px;}
+  .product-body .sub{color:var(--accent);font-size:13px;font-style:italic;margin-bottom:12px;}
+  .product-body p.desc{font-size:14px;color:var(--text);margin-bottom:14px;}
+  .product-body ul{margin:0 0 14px 18px;font-size:13.5px;color:var(--text);}
+  .product-body ul li{margin-bottom:5px;}
+  .tech-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .tech-tags span{
+    background:var(--pale);color:var(--navy);font-size:11px;font-weight:600;
+    padding:4px 9px;border-radius:20px;border:1px solid #DCE3EE;
+  }
+
+  /* ---------- freelance ---------- */
+  #work{background:#fff;}
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+  .proj-card{border:1px solid #E5E9F0;border-radius:10px;overflow:hidden;transition:box-shadow .15s,transform .15s;}
+  .proj-card:hover{box-shadow:0 8px 20px rgba(31,56,100,0.12);transform:translateY(-3px);}
+  .proj-card img{height:150px;width:100%;object-fit:cover;}
+  .proj-body{padding:16px 18px;}
+  .proj-body h4{font-size:14.5px;color:var(--navy);margin-bottom:2px;}
+  .proj-loc{font-size:11.5px;color:var(--accent);font-style:italic;margin-bottom:8px;}
+  .proj-body p{font-size:12.8px;color:var(--gray);margin-bottom:8px;}
+  .proj-tech{font-size:11px;color:var(--light-gray);font-style:italic;}
+
+  /* ---------- testimonials ---------- */
+  #testimonials{background:var(--pale);}
+  .quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .quote-card{
+    background:#fff;border:1px solid #E2E7F0;border-left:3px solid var(--accent);
+    border-radius:6px;padding:20px 22px;
+  }
+  .quote-card p.quote{font-size:13.3px;font-style:italic;color:var(--text);margin-bottom:12px;}
+  .quote-card .author{font-size:13px;font-weight:700;color:var(--navy);}
+  .quote-card .meta{font-size:11px;color:var(--light-gray);}
+
+  /* ---------- contact ---------- */
+  #contact{
+    background:linear-gradient(135deg,var(--navy-darker) 0%,var(--navy) 100%);
+    color:#fff;text-align:center;
+  }
+  #contact .tag{color:var(--teal);}
+  #contact h2.title{color:#fff;}
+  #contact .lede{color:var(--tagline);margin:0 auto 30px;}
+  .contact-links{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:34px;}
+  .contact-links a{font-size:13.5px;color:var(--tagline);border-bottom:1px solid transparent;}
+  .contact-links a:hover{color:var(--teal);border-bottom-color:var(--teal);}
+
+  footer{
+    background:var(--navy-darker);color:var(--light-gray);text-align:center;
+    padding:22px 0;font-size:12px;
+  }
+
+  @media (max-width:760px){
+    nav.links{
+      position:absolute;top:100%;left:0;right:0;background:var(--navy-dark);
+      flex-direction:column;gap:0;display:none;border-top:1px solid rgba(86,214,199,0.2);
+    }
+    nav.links.open{display:flex;}
+    nav.links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .nav-toggle{display:block;}
+    .about-grid{grid-template-columns:1fr;gap:30px;}
+    .product-card{grid-template-columns:1fr;}
+    .product-card:nth-child(odd) .product-media{order:0;}
+    .hero h1{font-size:1.7rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <span class="brand">JAPHETH MUTAI</span>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#work">Freelance Work</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="photo-ring"><img src="assets/profile.png" alt="Japheth Mutai"></div>
+    <h1>JAPHETH MUTAI</h1>
+    <p class="tagline">Product Engineer | Technical Lead | Full-Stack Developer</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="Japheth-Mutai-Portfolio.pdf" target="_blank" rel="noopener">View Portfolio (PDF)</a>
+      <a class="btn btn-outline" href="Japheth-Mutai-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn btn-outline" href="#contact">Get in Touch</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">90+</div><div class="stat-label">Projects Delivered</div></div>
+      <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Clients Served</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <p class="tag">01 - Introduction</p>
+    <h2 class="title">About Me</h2>
+    <div class="rule"></div>
+    <div class="about-grid">
+      <p style="font-size:15px;color:var(--text);">
+        I'm a Product Engineer and Full-Stack Developer with over 10 years of experience designing,
+        building, and shipping SaaS platforms, business automation systems, and web, mobile, and
+        desktop applications end to end, from architecture and development through deployment and
+        client delivery. I've led engineering teams and owned products across retail, church
+        administration, logistics, and business communications, and delivered freelance projects for
+        international clients across the Netherlands, Spain, Italy, Bulgaria, Germany, and the
+        United States. I work comfortably across the full stack with Laravel, React, React Native,
+        .NET, Node.js, and Python, with a
+        strong focus on practical, scalable product delivery and hands-on technical leadership.
+      </p>
+      <div class="skills-box">
+        <h3>Languages</h3>
+        <p>JavaScript / TypeScript, PHP, C#, Python, SQL</p>
+        <h3>Frontend</h3>
+        <p>React, React Native, Next.js, Tailwind CSS, Three.js</p>
+        <h3>Backend</h3>
+        <p>Laravel, .NET, Node.js, Django</p>
+        <h3>Databases &amp; Cloud</h3>
+        <p>MySQL, PostgreSQL, AWS, REST APIs, System Architecture</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <p class="tag">02 - Products &amp; Platforms</p>
+    <h2 class="title">Products &amp; Platforms</h2>
+    <div class="rule"></div>
+    <p class="lede">A mix of in-house SaaS products I've led end to end at Maxicom IT Consultancy, and platforms I've helped build as part of larger engineering teams, from architecture through to the people using them every day.</p>
+
+    <div class="product-card">
+      <div class="product-media two-up">
+        <img src="assets/dukapro-dashboard.jpg" alt="DukaPro dashboard">
+        <img src="assets/dukapro-receipt.jpg" alt="DukaPro receipt">
+      </div>
+      <div class="product-body">
+        <h3>DukaPro</h3>
+        <p class="sub">Cloud-based POS &amp; Inventory Management — Web, Desktop &amp; Mobile</p>
+        <p class="desc">A cloud-based point-of-sale and inventory management platform now used by more than 50 SME businesses across Kenya, spanning retail and wholesale operations. Built and maintained as the product's lead engineer, covering the web dashboard, a Windows desktop app, and a mobile POS app with an offline-first architecture that keeps sales running through connectivity drops.</p>
+        <ul>
+          <li>Offline-first sync keeps sales recording locally and reconciling automatically once connectivity returns.</li>
+          <li>Barcode scanning and thermal receipt printing for fast, familiar in-store checkout.</li>
+          <li>Multi-branch inventory tracking, restocking, and low-stock alerts.</li>
+        </ul>
+        <div class="tech-tags"><span>Laravel</span><span>React</span><span>React Native</span><span>Electron</span><span>MySQL</span><span>GitHub</span><span>GitHub Actions</span><span>DigitalOcean</span><span>Tailwind CSS</span><span>TypeScript</span><span>M-Pesa Payments</span></div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-media">
+        <img src="assets/churchmate-dashboard.jpg" alt="ChurchMate dashboard">
+      </div>
+      <div class="product-body">
+        <h3>ChurchMate</h3>
+        <p class="sub">Church Management Platform — Membership, Finance &amp; Communication</p>
+        <p class="desc">A church management platform live at 5 churches, covering membership, attendance, finance, and communication in one system, alongside a companion bulk SMS platform serving 12 active business clients. Built and maintained as the product's lead engineer, from data model through to the features church administrators use every week.</p>
+        <ul>
+          <li>Member directory and profiles with attendance tracking and mobile self-service registration.</li>
+          <li>Giving and finance module with integrated M-Pesa transaction tracking for tithes, offerings, and campaigns.</li>
+          <li>Bulk SMS and messaging tools for church-wide communication, with delivery-status tracking.</li>
+        </ul>
+        <div class="tech-tags"><span>Laravel</span><span>React</span><span>Inertia.js</span><span>MySQL</span><span>GitHub</span><span>GitHub Actions</span><span>DigitalOcean</span><span>Docker</span><span>TypeScript</span><span>M-Pesa Payments</span><span>Tailwind CSS</span></div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-media two-up">
+        <img src="assets/soba-pickup.jpg" alt="Soba Africa parcel pickup form">
+        <img src="assets/soba-dashboard.jpg" alt="Soba Africa dashboard">
+      </div>
+      <div class="product-body">
+        <h3>Soba Africa</h3>
+        <p class="sub">Logistics &amp; Parcel Delivery Platform — Senior Software Developer, SOBA.AFRICA</p>
+        <p class="desc">A logistics platform connecting multiple courier partners for seamless parcel pickup, delivery, and comprehensive route coverage across Kenya. Led engineering across backend, frontend, and mobile as Senior Software Developer at SOBA.AFRICA, architecting REST APIs and customer-facing applications that gave shippers and partners real-time shipment visibility.</p>
+        <ul>
+          <li>Real-time shipment tracking and visibility for customers and logistics partners.</li>
+          <li>Customer-facing web app for requesting parcel pickup and managing deliveries.</li>
+          <li>REST API and database architecture supporting multi-partner route coverage, including data-security hardening.</li>
+        </ul>
+        <div class="tech-tags"><span>.NET</span><span>React</span><span>Next.js</span><span>Tailwind CSS</span><span>PostgreSQL</span><span>MySQL</span><span>DigitalOcean</span><span>Docker</span><span>GitHub</span><span>GitHub Actions</span><span>TypeScript</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <p class="tag">03 - Freelance Work</p>
+    <h2 class="title">Notable Client &amp; Freelance Projects</h2>
+    <div class="rule"></div>
+    <p class="lede">Full-stack products delivered for international clients through freelance engagements, spanning AI-assisted ordering systems, real estate and rental platforms, and interactive 3D commerce tools.</p>
+
+    <div class="proj-grid">
+      <div class="proj-card">
+        <img src="assets/proj-restaurant.jpg" alt="AI Restaurant Ordering System">
+        <div class="proj-body">
+          <h4>AI Restaurant Ordering System</h4>
+          <p class="proj-loc">Netherlands</p>
+          <p>Patrons talk to an AI assistant from their mobile app to pick meals and place orders, while waiters pick up confirmed orders from the backend to serve tables or send them to the kitchen terminal.</p>
+          <p class="proj-tech">React, TypeScript, Redux Toolkit, Django, Tailwind CSS, Figma, GitHub</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="assets/proj-abidors.jpg" alt="Abidors Real Estate Platform">
+        <div class="proj-body">
+          <h4>Abidors Real Estate Platform</h4>
+          <p class="proj-loc">Bulgaria</p>
+          <p>A platform connecting buyers, sellers, virtual assistants, lawyers, photographers, and financial institutions, covering listing, documentation, and mortgage applications in one system.</p>
+          <p class="proj-tech">React, TypeScript, Tailwind CSS, Node.js, Figma</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="assets/proj-wpmonitoring.jpg" alt="WP Monitoring Platform">
+        <div class="proj-body">
+          <h4>WP Monitoring Platform</h4>
+          <p class="proj-loc">Netherlands</p>
+          <p>Lets WordPress site owners manage analytics, plugins, and themes for all their WordPress websites from a single dashboard, backed by a Django REST API for real-time data.</p>
+          <p class="proj-tech">React, Redux Toolkit, Django, Stripe Payment Processing, 2FA Authentication, Tailwind CSS, JWT Authentication</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="assets/proj-powerhost.jpg" alt="Powerhost Rental Management Tool">
+        <div class="proj-body">
+          <h4>Powerhost Rental Management Tool</h4>
+          <p class="proj-loc">Spain</p>
+          <p>Helps Airbnb hosts track listing performance and grow revenue, integrating the Rentals United API and deployed to AWS via Bitbucket pipelines.</p>
+          <p class="proj-tech">Next.js, Tailwind CSS, Python, AWS, Bitbucket</p>
+        </div>
+      </div>
+      <div class="proj-card">
+        <img src="assets/proj-shoe.jpg" alt="3D Shoe Configurator">
+        <div class="proj-body">
+          <h4>3D Shoe Configurator</h4>
+          <p class="proj-loc">Italy</p>
+          <p>An interactive 3D product configurator enabling real-time shoe customization and visualization, enhancing the online shopping experience for the client's customers.</p>
+          <p class="proj-tech">React, TypeScript, Tailwind CSS, Three.js, React-Three-Fiber, Adobe, Blender</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <p class="tag">04 - Client Feedback</p>
+    <h2 class="title">Testimonials</h2>
+    <div class="rule"></div>
+    <p class="lede">What clients have said after working together on freelance engagements.</p>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <p class="quote">"Japheth did an exceptional job developing React components for our project. He delivered high-quality, flawless code on time, implementing all feedback seamlessly. Highly recommended for anyone seeking a skilled React developer!"</p>
+        <div class="author">Marco Cereghino</div>
+        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Client</div>
+      </div>
+      <div class="quote-card">
+        <p class="quote">"Japheth delivered outstanding work with incredible professionalism and code expertise. His proactive communication and timely delivery made the collaboration seamless. Highly recommended!"</p>
+        <div class="author">mitale79</div>
+        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Italy</div>
+      </div>
+      <div class="quote-card">
+        <p class="quote">"Japheth is an absolute superstar. He delivered beyond my expectations and was a pleasure to work with. Super responsive, great communication, created excellent code that instantly plugged into my system."</p>
+        <div class="author">bcny1989</div>
+        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
+      </div>
+      <div class="quote-card">
+        <p class="quote">"Japheth is very professional, and his work is of high quality. He is very reactive and always goes the extra mile to deliver the component as needed. I enjoyed collaborating with him, and I'll surely do it again."</p>
+        <div class="author">this_is_michele</div>
+        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Netherlands</div>
+      </div>
+      <div class="quote-card">
+        <p class="quote">"Very professional seller, excellent communication, 100% recommendation!"</p>
+        <div class="author">wappfactory</div>
+        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Germany</div>
+      </div>
+      <div class="quote-card">
+        <p class="quote">"Japheth was prompt in their communication and delivered exactly what I asked for by the delivery date. They will definitely be my first contact if I require assistance again."</p>
+        <div class="author">lugialord_</div>
+        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="tag">05 - Get In Touch</p>
+    <h2 class="title">Let's Build Something Great Together</h2>
+    <div class="rule" style="margin-left:auto;margin-right:auto;"></div>
+    <p class="lede">Looking to bring your product idea to life, need an engineer to own it end to end, or want a product-minded engineer on your team full-time? Let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:japhethmutaik@gmail.com">japhethmutaik@gmail.com</a>
+      <a href="tel:+254722772898">+254 722 772 898</a>
+      <a href="https://www.linkedin.com/in/japheth-mutai" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/japhethmutai" target="_blank" rel="noopener">GitHub</a>
+      <span>Nairobi, Kenya</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="Japheth-Mutai-Portfolio.pdf" target="_blank" rel="noopener">View Portfolio (PDF)</a>
+      <a class="btn btn-outline" href="Japheth-Mutai-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Japheth Mutai. Built with care.
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('nav.links a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
