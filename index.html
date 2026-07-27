@@ -147,34 +147,53 @@
   }
 
   /* ---------- testimonials ---------- */
-  #testimonials{background:var(--pale);}
-  .testimonial-carousel{position:relative;max-width:640px;margin:0 auto;}
-  .carousel-viewport{overflow:hidden;border-radius:6px;}
-  .carousel-track{display:flex;transition:transform .5s cubic-bezier(.16,.84,.44,1);}
-  .quote-card{
-    flex:0 0 100%;
-    background:#fff;border:1px solid #E2E7F0;border-left:3px solid var(--accent);
-    border-radius:6px;padding:20px 22px;
+  #testimonials{background:var(--pale);padding-bottom:0;}
+  #testimonials > .wrap{margin-bottom:44px;}
+  .testimonial-spotlight{
+    position:relative;overflow:hidden;
+    background:linear-gradient(135deg,var(--navy) 0%,var(--accent) 100%);
+    padding:60px 0 72px;
   }
-  .quote-card p.quote{font-size:13.3px;font-style:italic;color:var(--text);margin-bottom:12px;}
-  .quote-card .author{font-size:13px;font-weight:700;color:var(--navy);}
-  .quote-card .meta{font-size:11px;color:var(--light-gray);}
+  .testimonial-spotlight::before{
+    content:"";position:absolute;top:-110px;right:-70px;width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle,rgba(86,214,199,0.32) 0%,rgba(86,214,199,0) 72%);
+    pointer-events:none;
+  }
+  .testimonial-spotlight::after{
+    content:"";position:absolute;bottom:-130px;left:-70px;width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(86,214,199,0.18) 0%,rgba(86,214,199,0) 72%);
+    pointer-events:none;
+  }
+  .spotlight-inner{position:relative;max-width:740px;margin:0 auto;padding:0 60px;}
+  .carousel-viewport{overflow:hidden;}
+  .carousel-track{display:flex;align-items:flex-start;transition:transform .55s cubic-bezier(.16,.84,.44,1);}
+  .quote-slide{flex:0 0 100%;text-align:center;padding:2px 4px;}
+  .quote-mark{
+    display:block;font-family:Georgia,'Times New Roman',serif;font-size:52px;line-height:1;
+    color:var(--teal);opacity:0.85;margin-bottom:4px;
+  }
+  .quote-slide .quote{
+    font-family:Georgia,'Times New Roman',serif;font-style:italic;
+    font-size:1.5rem;line-height:1.48;color:#fff;margin-bottom:24px;
+  }
+  .quote-slide .author{font-size:15px;font-weight:700;color:var(--teal);letter-spacing:0.2px;}
+  .quote-slide .meta{font-size:12px;color:var(--tagline);margin-top:4px;}
   .carousel-arrow{
-    position:absolute;top:50%;transform:translateY(-50%);
-    width:36px;height:36px;border-radius:50%;border:1px solid #DCE3EE;background:#fff;
-    color:var(--navy);font-size:18px;line-height:1;cursor:pointer;
+    position:absolute;top:74px;
+    width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.35);
+    background:rgba(255,255,255,0.08);color:#fff;font-size:20px;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;
-    transition:background .15s,box-shadow .15s;
+    transition:background .15s,border-color .15s;
   }
-  .carousel-arrow:hover{background:var(--pale);box-shadow:0 4px 10px rgba(31,56,100,0.12);}
-  .carousel-arrow.prev{left:-46px;}
-  .carousel-arrow.next{right:-46px;}
-  .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:18px;}
+  .carousel-arrow:hover{background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.6);}
+  .carousel-arrow.prev{left:0;}
+  .carousel-arrow.next{right:0;}
+  .carousel-dots{display:flex;justify-content:center;gap:9px;margin-top:30px;}
   .carousel-dots button{
-    width:8px;height:8px;border-radius:50%;border:none;background:#C7D0E0;cursor:pointer;padding:0;
+    width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,0.35);cursor:pointer;padding:0;
     transition:background .15s,transform .15s;
   }
-  .carousel-dots button.active{background:var(--accent);transform:scale(1.3);}
+  .carousel-dots button.active{background:var(--teal);transform:scale(1.35);}
 
   /* ---------- contact ---------- */
   #contact{
@@ -230,9 +249,12 @@
     .product-card{grid-template-columns:1fr;}
     .product-card:nth-child(odd) .product-media{order:0;}
     .hero h1{font-size:1.7rem;}
-    .carousel-arrow.prev{left:6px;}
-    .carousel-arrow.next{right:6px;}
-    .carousel-arrow{background:rgba(255,255,255,0.85);}
+    .spotlight-inner{padding:0 44px;}
+    .quote-mark{font-size:40px;}
+    .quote-slide .quote{font-size:1.2rem;}
+    .carousel-arrow{width:34px;height:34px;top:64px;}
+    .carousel-arrow.prev{left:-6px;}
+    .carousel-arrow.next{right:-6px;}
   }
 </style>
 </head>
@@ -455,44 +477,54 @@
     <h2 class="title">Testimonials</h2>
     <div class="rule"></div>
     <p class="lede reveal">What clients have said after working together on freelance engagements.</p>
-    <div class="testimonial-carousel reveal" id="testimonialCarousel" role="region" aria-roledescription="carousel" aria-label="Client testimonials" tabindex="0">
-      <div class="carousel-viewport">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="quote-card">
-            <p class="quote">"Japheth did an exceptional job developing React components for our project. He delivered high-quality, flawless code on time, implementing all feedback seamlessly. Highly recommended for anyone seeking a skilled React developer!"</p>
-            <div class="author">Marco Cereghino</div>
-            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Client</div>
-          </div>
-          <div class="quote-card">
-            <p class="quote">"Japheth delivered outstanding work with incredible professionalism and code expertise. His proactive communication and timely delivery made the collaboration seamless. Highly recommended!"</p>
-            <div class="author">mitale79</div>
-            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Italy</div>
-          </div>
-          <div class="quote-card">
-            <p class="quote">"Japheth is an absolute superstar. He delivered beyond my expectations and was a pleasure to work with. Super responsive, great communication, created excellent code that instantly plugged into my system."</p>
-            <div class="author">bcny1989</div>
-            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
-          </div>
-          <div class="quote-card">
-            <p class="quote">"Japheth is very professional, and his work is of high quality. He is very reactive and always goes the extra mile to deliver the component as needed. I enjoyed collaborating with him, and I'll surely do it again."</p>
-            <div class="author">this_is_michele</div>
-            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Netherlands</div>
-          </div>
-          <div class="quote-card">
-            <p class="quote">"Very professional seller, excellent communication, 100% recommendation!"</p>
-            <div class="author">wappfactory</div>
-            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Germany</div>
-          </div>
-          <div class="quote-card">
-            <p class="quote">"Japheth was prompt in their communication and delivered exactly what I asked for by the delivery date. They will definitely be my first contact if I require assistance again."</p>
-            <div class="author">lugialord_</div>
-            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
+  </div>
+  <div class="testimonial-spotlight reveal" id="testimonialCarousel" role="region" aria-roledescription="carousel" aria-label="Client testimonials" tabindex="0">
+    <div class="wrap">
+      <div class="spotlight-inner">
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="quote-slide">
+              <span class="quote-mark" aria-hidden="true">&#8220;</span>
+              <p class="quote">Japheth did an exceptional job developing React components for our project. He delivered high-quality, flawless code on time, implementing all feedback seamlessly. Highly recommended for anyone seeking a skilled React developer!</p>
+              <div class="author">Marco Cereghino</div>
+              <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Client</div>
+            </div>
+            <div class="quote-slide">
+              <span class="quote-mark" aria-hidden="true">&#8220;</span>
+              <p class="quote">Japheth delivered outstanding work with incredible professionalism and code expertise. His proactive communication and timely delivery made the collaboration seamless. Highly recommended!</p>
+              <div class="author">mitale79</div>
+              <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Italy</div>
+            </div>
+            <div class="quote-slide">
+              <span class="quote-mark" aria-hidden="true">&#8220;</span>
+              <p class="quote">Japheth is an absolute superstar. He delivered beyond my expectations and was a pleasure to work with. Super responsive, great communication, created excellent code that instantly plugged into my system.</p>
+              <div class="author">bcny1989</div>
+              <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
+            </div>
+            <div class="quote-slide">
+              <span class="quote-mark" aria-hidden="true">&#8220;</span>
+              <p class="quote">Japheth is very professional, and his work is of high quality. He is very reactive and always goes the extra mile to deliver the component as needed. I enjoyed collaborating with him, and I'll surely do it again.</p>
+              <div class="author">this_is_michele</div>
+              <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Netherlands</div>
+            </div>
+            <div class="quote-slide">
+              <span class="quote-mark" aria-hidden="true">&#8220;</span>
+              <p class="quote">Very professional seller, excellent communication, 100% recommendation!</p>
+              <div class="author">wappfactory</div>
+              <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Germany</div>
+            </div>
+            <div class="quote-slide">
+              <span class="quote-mark" aria-hidden="true">&#8220;</span>
+              <p class="quote">Japheth was prompt in their communication and delivered exactly what I asked for by the delivery date. They will definitely be my first contact if I require assistance again.</p>
+              <div class="author">lugialord_</div>
+              <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
+            </div>
           </div>
         </div>
+        <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous testimonial">&#8249;</button>
+        <button class="carousel-arrow next" id="carouselNext" aria-label="Next testimonial">&#8250;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
-      <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous testimonial">&#8249;</button>
-      <button class="carousel-arrow next" id="carouselNext" aria-label="Next testimonial">&#8250;</button>
-      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </div>
 </section>
