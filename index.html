@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
 <title>Japheth Mutai - Product Engineer | Technical Lead | Full-Stack Developer</title>
 <meta name="description" content="Japheth Mutai is a Product Engineer, Technical Lead, and Full-Stack Developer with 10+ years building SaaS platforms, business automation systems, and web, mobile, and desktop applications.">
 <link rel="icon" href="data:,">
@@ -168,6 +169,37 @@
     padding:22px 0;font-size:12px;
   }
 
+  /* ---------- scroll reveal ---------- */
+  .reveal{
+    opacity:0;transform:translateY(26px);
+    transition:opacity .6s cubic-bezier(.16,.84,.44,1),transform .6s cubic-bezier(.16,.84,.44,1);
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  html:not(.js) .reveal{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+  .proj-grid .reveal:nth-child(1){transition-delay:.04s;}
+  .proj-grid .reveal:nth-child(2){transition-delay:.1s;}
+  .proj-grid .reveal:nth-child(3){transition-delay:.16s;}
+  .proj-grid .reveal:nth-child(4){transition-delay:.22s;}
+  .proj-grid .reveal:nth-child(5){transition-delay:.28s;}
+  .quote-grid .reveal:nth-child(1){transition-delay:.04s;}
+  .quote-grid .reveal:nth-child(2){transition-delay:.1s;}
+  .quote-grid .reveal:nth-child(3){transition-delay:.16s;}
+  .quote-grid .reveal:nth-child(4){transition-delay:.22s;}
+  .quote-grid .reveal:nth-child(5){transition-delay:.28s;}
+  .quote-grid .reveal:nth-child(6){transition-delay:.34s;}
+  .skills-box .reveal:nth-child(1){transition-delay:.02s;}
+  .skills-box .reveal:nth-child(2){transition-delay:.06s;}
+  .skills-box .reveal:nth-child(3){transition-delay:.1s;}
+  .skills-box .reveal:nth-child(4){transition-delay:.14s;}
+  .skills-box .reveal:nth-child(5){transition-delay:.18s;}
+  .skills-box .reveal:nth-child(6){transition-delay:.22s;}
+  .skills-box .reveal:nth-child(7){transition-delay:.26s;}
+  .skills-box .reveal:nth-child(8){transition-delay:.3s;}
+  .skills-box .reveal:nth-child(9){transition-delay:.34s;}
+
   @media (max-width:760px){
     nav.links{
       position:absolute;top:100%;left:0;right:0;background:var(--navy-dark);
@@ -222,7 +254,7 @@
     <p class="tag">01 - Introduction</p>
     <h2 class="title">About Me</h2>
     <div class="rule"></div>
-    <p class="about-lede">
+    <p class="about-lede reveal">
       I'm a Product Engineer and Full-Stack Developer with over 10 years of experience designing,
       building, and shipping SaaS platforms, business automation systems, and web, mobile, and
       desktop applications end to end, from architecture and development through deployment and
@@ -236,39 +268,39 @@
     <div class="skills-section">
       <h3 class="skills-heading">Core Skills</h3>
       <div class="skills-box">
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Languages</h3>
           <p>JavaScript/TypeScript, C#, PHP, Python, SQL</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Frontend</h3>
           <p>React, React Native, Next.js, Redux Toolkit, Tailwind CSS, Three.js, HTML5, CSS3</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Backend</h3>
           <p>Laravel, ASP.NET/.NET, Node.js, Django, Express.js, REST APIs, GraphQL</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Databases &amp; Data</h3>
           <p>MySQL, PostgreSQL, SQLite, MongoDB, Redis</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>ORMs &amp; Data Access</h3>
           <p>Prisma ORM, Entity Framework, Laravel Eloquent</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Cloud &amp; DevOps</h3>
           <p>AWS, DigitalOcean, Docker, Git, GitHub Actions, CI/CD, Linux, Nginx</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Architecture</h3>
           <p>System Architecture, REST API Design, Offline-First Architecture, Multi-Tenant SaaS, Authentication &amp; Authorization, Role-Based Access Control</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Messaging &amp; Integrations</h3>
           <p>M-Pesa API, Stripe, Firebase Cloud Messaging (FCM), WebSockets, Twilio, OAuth 2.0, JWT</p>
         </div>
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <h3>Tools</h3>
           <p>VS Code, Visual Studio, Postman, Swagger/OpenAPI, Figma, Jira, Trello</p>
         </div>
@@ -282,9 +314,9 @@
     <p class="tag">02 - Products &amp; Platforms</p>
     <h2 class="title">Products &amp; Platforms</h2>
     <div class="rule"></div>
-    <p class="lede">A mix of in-house SaaS products I've led end to end at Maxicom IT Consultancy, and platforms I've helped build as part of larger engineering teams, from architecture through to the people using them every day.</p>
+    <p class="lede reveal">A mix of in-house SaaS products I've led end to end at Maxicom IT Consultancy, and platforms I've helped build as part of larger engineering teams, from architecture through to the people using them every day.</p>
 
-    <div class="product-card">
+    <div class="product-card reveal">
       <div class="product-media two-up">
         <img src="assets/dukapro-dashboard.jpg" alt="DukaPro dashboard">
         <img src="assets/dukapro-receipt.jpg" alt="DukaPro receipt">
@@ -302,7 +334,7 @@
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card reveal">
       <div class="product-media">
         <img src="assets/churchmate-dashboard.jpg" alt="ChurchMate dashboard">
       </div>
@@ -319,7 +351,7 @@
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card reveal">
       <div class="product-media two-up">
         <img src="assets/soba-pickup.jpg" alt="Soba Africa parcel pickup form">
         <img src="assets/soba-dashboard.jpg" alt="Soba Africa dashboard">
@@ -344,10 +376,10 @@
     <p class="tag">03 - Freelance Work</p>
     <h2 class="title">Notable Client &amp; Freelance Projects</h2>
     <div class="rule"></div>
-    <p class="lede">Full-stack products delivered for international clients through freelance engagements, spanning AI-assisted ordering systems, real estate and rental platforms, and interactive 3D commerce tools.</p>
+    <p class="lede reveal">Full-stack products delivered for international clients through freelance engagements, spanning AI-assisted ordering systems, real estate and rental platforms, and interactive 3D commerce tools.</p>
 
     <div class="proj-grid">
-      <div class="proj-card">
+      <div class="proj-card reveal">
         <img src="assets/proj-restaurant.jpg" alt="AI Restaurant Ordering System">
         <div class="proj-body">
           <h4>AI Restaurant Ordering System</h4>
@@ -356,7 +388,7 @@
           <p class="proj-tech">React, TypeScript, Redux Toolkit, Django, Tailwind CSS, Figma, GitHub</p>
         </div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal">
         <img src="assets/proj-abidors.jpg" alt="Abidors Real Estate Platform">
         <div class="proj-body">
           <h4>Abidors Real Estate Platform</h4>
@@ -365,7 +397,7 @@
           <p class="proj-tech">React, TypeScript, Tailwind CSS, Node.js, Figma</p>
         </div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal">
         <img src="assets/proj-wpmonitoring.jpg" alt="WP Monitoring Platform">
         <div class="proj-body">
           <h4>WP Monitoring Platform</h4>
@@ -374,7 +406,7 @@
           <p class="proj-tech">React, Redux Toolkit, Django, Stripe Payment Processing, 2FA Authentication, Tailwind CSS, JWT Authentication</p>
         </div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal">
         <img src="assets/proj-powerhost.jpg" alt="Powerhost Rental Management Tool">
         <div class="proj-body">
           <h4>Powerhost Rental Management Tool</h4>
@@ -383,7 +415,7 @@
           <p class="proj-tech">Next.js, Tailwind CSS, Python, AWS, Bitbucket</p>
         </div>
       </div>
-      <div class="proj-card">
+      <div class="proj-card reveal">
         <img src="assets/proj-shoe.jpg" alt="3D Shoe Configurator">
         <div class="proj-body">
           <h4>3D Shoe Configurator</h4>
@@ -401,34 +433,34 @@
     <p class="tag">04 - Client Feedback</p>
     <h2 class="title">Testimonials</h2>
     <div class="rule"></div>
-    <p class="lede">What clients have said after working together on freelance engagements.</p>
+    <p class="lede reveal">What clients have said after working together on freelance engagements.</p>
     <div class="quote-grid">
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="quote">"Japheth did an exceptional job developing React components for our project. He delivered high-quality, flawless code on time, implementing all feedback seamlessly. Highly recommended for anyone seeking a skilled React developer!"</p>
         <div class="author">Marco Cereghino</div>
         <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Client</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="quote">"Japheth delivered outstanding work with incredible professionalism and code expertise. His proactive communication and timely delivery made the collaboration seamless. Highly recommended!"</p>
         <div class="author">mitale79</div>
         <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Italy</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="quote">"Japheth is an absolute superstar. He delivered beyond my expectations and was a pleasure to work with. Super responsive, great communication, created excellent code that instantly plugged into my system."</p>
         <div class="author">bcny1989</div>
         <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="quote">"Japheth is very professional, and his work is of high quality. He is very reactive and always goes the extra mile to deliver the component as needed. I enjoyed collaborating with him, and I'll surely do it again."</p>
         <div class="author">this_is_michele</div>
         <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Netherlands</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="quote">"Very professional seller, excellent communication, 100% recommendation!"</p>
         <div class="author">wappfactory</div>
         <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Germany</div>
       </div>
-      <div class="quote-card">
+      <div class="quote-card reveal">
         <p class="quote">"Japheth was prompt in their communication and delivered exactly what I asked for by the delivery date. They will definitely be my first contact if I require assistance again."</p>
         <div class="author">lugialord_</div>
         <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
@@ -442,15 +474,15 @@
     <p class="tag">05 - Get In Touch</p>
     <h2 class="title">Let's Build Something Great Together</h2>
     <div class="rule" style="margin-left:auto;margin-right:auto;"></div>
-    <p class="lede">Looking to bring your product idea to life, need an engineer to own it end to end, or want a product-minded engineer on your team full-time? Let's talk.</p>
-    <div class="contact-links">
+    <p class="lede reveal">Looking to bring your product idea to life, need an engineer to own it end to end, or want a product-minded engineer on your team full-time? Let's talk.</p>
+    <div class="contact-links reveal">
       <a href="mailto:japhethmutaik@gmail.com">japhethmutaik@gmail.com</a>
       <a href="tel:+254722772898">+254 722 772 898</a>
       <a href="https://www.linkedin.com/in/japheth-mutai" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/japhethmutai" target="_blank" rel="noopener">GitHub</a>
       <span>Nairobi, Kenya</span>
     </div>
-    <div class="cta-row">
+    <div class="cta-row reveal">
       <a class="btn btn-primary" href="Japheth-Mutai-Portfolio.pdf" target="_blank" rel="noopener">View Portfolio (PDF)</a>
       <a class="btn btn-outline" href="Japheth-Mutai-CV.pdf" target="_blank" rel="noopener">Download CV</a>
     </div>
@@ -471,6 +503,23 @@
     });
   });
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  })();
 </script>
 
 </body>
