@@ -94,10 +94,12 @@
 
   /* ---------- about ---------- */
   #about{background:var(--white);}
-  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start;}
-  .skills-box h3{font-size:13px;color:var(--accent);font-weight:700;margin:14px 0 4px;text-transform:uppercase;letter-spacing:0.4px;}
-  .skills-box h3:first-child{margin-top:0;}
-  .skills-box p{font-size:14px;color:var(--text);}
+  .about-lede{font-size:15px;color:var(--text);max-width:760px;margin-bottom:34px;}
+  .skills-heading{font-size:13px;color:var(--navy);font-weight:700;margin:0 0 14px;text-transform:uppercase;letter-spacing:0.6px;}
+  .skills-box{column-count:3;column-gap:32px;}
+  .skills-box .skill-group{margin:0;break-inside:avoid;}
+  .skills-box h3{font-size:13px;color:var(--accent);font-weight:700;margin:0 0 4px;text-transform:uppercase;letter-spacing:0.4px;}
+  .skills-box p{font-size:14px;color:var(--text);margin:0 0 16px;}
 
   /* ---------- products ---------- */
   #products{background:var(--pale);}
@@ -174,7 +176,7 @@
     nav.links.open{display:flex;}
     nav.links a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.05);}
     .nav-toggle{display:block;}
-    .about-grid{grid-template-columns:1fr;gap:30px;}
+    .skills-box{column-count:1;}
     .product-card{grid-template-columns:1fr;}
     .product-card:nth-child(odd) .product-media{order:0;}
     .hero h1{font-size:1.7rem;}
@@ -220,37 +222,56 @@
     <p class="tag">01 - Introduction</p>
     <h2 class="title">About Me</h2>
     <div class="rule"></div>
-    <div class="about-grid">
-      <p style="font-size:15px;color:var(--text);">
-        I'm a Product Engineer and Full-Stack Developer with over 10 years of experience designing,
-        building, and shipping SaaS platforms, business automation systems, and web, mobile, and
-        desktop applications end to end, from architecture and development through deployment and
-        client delivery. I've led engineering teams and owned products across retail, church
-        administration, logistics, and business communications, and delivered freelance projects for
-        international clients across the Netherlands, Spain, Italy, Bulgaria, Germany, and the
-        United States. I work comfortably across the full stack with Laravel, React, React Native,
-        .NET, Node.js, and Python, with a
-        strong focus on practical, scalable product delivery and hands-on technical leadership.
-      </p>
+    <p class="about-lede">
+      I'm a Product Engineer and Full-Stack Developer with over 10 years of experience designing,
+      building, and shipping SaaS platforms, business automation systems, and web, mobile, and
+      desktop applications end to end, from architecture and development through deployment and
+      client delivery. I've led engineering teams and owned products across retail, church
+      administration, logistics, and business communications, and delivered freelance projects for
+      international clients across the Netherlands, Spain, Italy, Bulgaria, Germany, and the
+      United States. I work comfortably across the full stack with Laravel, React, React Native,
+      .NET, Node.js, and Python, with a
+      strong focus on practical, scalable product delivery and hands-on technical leadership.
+    </p>
+    <div class="skills-section">
+      <h3 class="skills-heading">Core Skills</h3>
       <div class="skills-box">
-        <h3>Languages</h3>
-        <p>JavaScript/TypeScript, C#, PHP, Python, SQL</p>
-        <h3>Frontend</h3>
-        <p>React, React Native, Next.js, Redux Toolkit, Tailwind CSS, Three.js, HTML5, CSS3</p>
-        <h3>Backend</h3>
-        <p>Laravel, ASP.NET/.NET, Node.js, Django, Express.js, REST APIs, GraphQL</p>
-        <h3>Databases &amp; Data</h3>
-        <p>MySQL, PostgreSQL, SQLite, MongoDB, Redis</p>
-        <h3>ORMs &amp; Data Access</h3>
-        <p>Prisma ORM, Entity Framework, Laravel Eloquent</p>
-        <h3>Cloud &amp; DevOps</h3>
-        <p>AWS, DigitalOcean, Docker, Git, GitHub Actions, CI/CD, Linux, Nginx</p>
-        <h3>Architecture</h3>
-        <p>System Architecture, REST API Design, Offline-First Architecture, Multi-Tenant SaaS, Authentication &amp; Authorization, Role-Based Access Control</p>
-        <h3>Messaging &amp; Integrations</h3>
-        <p>M-Pesa API, Stripe, Firebase Cloud Messaging (FCM), WebSockets, Twilio, OAuth 2.0, JWT</p>
-        <h3>Tools</h3>
-        <p>VS Code, Visual Studio, Postman, Swagger/OpenAPI, Figma, Jira, Trello</p>
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <p>JavaScript/TypeScript, C#, PHP, Python, SQL</p>
+        </div>
+        <div class="skill-group">
+          <h3>Frontend</h3>
+          <p>React, React Native, Next.js, Redux Toolkit, Tailwind CSS, Three.js, HTML5, CSS3</p>
+        </div>
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <p>Laravel, ASP.NET/.NET, Node.js, Django, Express.js, REST APIs, GraphQL</p>
+        </div>
+        <div class="skill-group">
+          <h3>Databases &amp; Data</h3>
+          <p>MySQL, PostgreSQL, SQLite, MongoDB, Redis</p>
+        </div>
+        <div class="skill-group">
+          <h3>ORMs &amp; Data Access</h3>
+          <p>Prisma ORM, Entity Framework, Laravel Eloquent</p>
+        </div>
+        <div class="skill-group">
+          <h3>Cloud &amp; DevOps</h3>
+          <p>AWS, DigitalOcean, Docker, Git, GitHub Actions, CI/CD, Linux, Nginx</p>
+        </div>
+        <div class="skill-group">
+          <h3>Architecture</h3>
+          <p>System Architecture, REST API Design, Offline-First Architecture, Multi-Tenant SaaS, Authentication &amp; Authorization, Role-Based Access Control</p>
+        </div>
+        <div class="skill-group">
+          <h3>Messaging &amp; Integrations</h3>
+          <p>M-Pesa API, Stripe, Firebase Cloud Messaging (FCM), WebSockets, Twilio, OAuth 2.0, JWT</p>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <p>VS Code, Visual Studio, Postman, Swagger/OpenAPI, Figma, Jira, Trello</p>
+        </div>
       </div>
     </div>
   </div>
