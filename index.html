@@ -134,23 +134,47 @@
   .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
   .proj-card{border:1px solid #E5E9F0;border-radius:10px;overflow:hidden;transition:box-shadow .15s,transform .15s;}
   .proj-card:hover{box-shadow:0 8px 20px rgba(31,56,100,0.12);transform:translateY(-3px);}
-  .proj-card img{height:150px;width:100%;object-fit:cover;}
+  .proj-card img{height:150px;width:100%;object-fit:cover;transition:transform .4s ease;display:block;}
+  .proj-card:hover img{transform:scale(1.08);}
   .proj-body{padding:16px 18px;}
   .proj-body h4{font-size:14.5px;color:var(--navy);margin-bottom:2px;}
   .proj-loc{font-size:11.5px;color:var(--accent);font-style:italic;margin-bottom:8px;}
   .proj-body p{font-size:12.8px;color:var(--gray);margin-bottom:8px;}
-  .proj-tech{font-size:11px;color:var(--light-gray);font-style:italic;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:5px;}
+  .proj-tags span{
+    background:var(--pale);color:var(--navy);font-size:10.5px;font-weight:600;
+    padding:3px 8px;border-radius:20px;border:1px solid #DCE3EE;
+  }
 
   /* ---------- testimonials ---------- */
   #testimonials{background:var(--pale);}
-  .quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .testimonial-carousel{position:relative;max-width:640px;margin:0 auto;}
+  .carousel-viewport{overflow:hidden;border-radius:6px;}
+  .carousel-track{display:flex;transition:transform .5s cubic-bezier(.16,.84,.44,1);}
   .quote-card{
+    flex:0 0 100%;
     background:#fff;border:1px solid #E2E7F0;border-left:3px solid var(--accent);
     border-radius:6px;padding:20px 22px;
   }
   .quote-card p.quote{font-size:13.3px;font-style:italic;color:var(--text);margin-bottom:12px;}
   .quote-card .author{font-size:13px;font-weight:700;color:var(--navy);}
   .quote-card .meta{font-size:11px;color:var(--light-gray);}
+  .carousel-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:36px;height:36px;border-radius:50%;border:1px solid #DCE3EE;background:#fff;
+    color:var(--navy);font-size:18px;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .15s,box-shadow .15s;
+  }
+  .carousel-arrow:hover{background:var(--pale);box-shadow:0 4px 10px rgba(31,56,100,0.12);}
+  .carousel-arrow.prev{left:-46px;}
+  .carousel-arrow.next{right:-46px;}
+  .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:18px;}
+  .carousel-dots button{
+    width:8px;height:8px;border-radius:50%;border:none;background:#C7D0E0;cursor:pointer;padding:0;
+    transition:background .15s,transform .15s;
+  }
+  .carousel-dots button.active{background:var(--accent);transform:scale(1.3);}
 
   /* ---------- contact ---------- */
   #contact{
@@ -184,12 +208,6 @@
   .proj-grid .reveal:nth-child(3){transition-delay:.16s;}
   .proj-grid .reveal:nth-child(4){transition-delay:.22s;}
   .proj-grid .reveal:nth-child(5){transition-delay:.28s;}
-  .quote-grid .reveal:nth-child(1){transition-delay:.04s;}
-  .quote-grid .reveal:nth-child(2){transition-delay:.1s;}
-  .quote-grid .reveal:nth-child(3){transition-delay:.16s;}
-  .quote-grid .reveal:nth-child(4){transition-delay:.22s;}
-  .quote-grid .reveal:nth-child(5){transition-delay:.28s;}
-  .quote-grid .reveal:nth-child(6){transition-delay:.34s;}
   .skills-box .reveal:nth-child(1){transition-delay:.02s;}
   .skills-box .reveal:nth-child(2){transition-delay:.06s;}
   .skills-box .reveal:nth-child(3){transition-delay:.1s;}
@@ -212,6 +230,9 @@
     .product-card{grid-template-columns:1fr;}
     .product-card:nth-child(odd) .product-media{order:0;}
     .hero h1{font-size:1.7rem;}
+    .carousel-arrow.prev{left:6px;}
+    .carousel-arrow.next{right:6px;}
+    .carousel-arrow{background:rgba(255,255,255,0.85);}
   }
 </style>
 </head>
@@ -385,7 +406,7 @@
           <h4>AI Restaurant Ordering System</h4>
           <p class="proj-loc">Netherlands</p>
           <p>Patrons talk to an AI assistant from their mobile app to pick meals and place orders, while waiters pick up confirmed orders from the backend to serve tables or send them to the kitchen terminal.</p>
-          <p class="proj-tech">React, TypeScript, Redux Toolkit, Django, Tailwind CSS, Figma, GitHub</p>
+          <div class="proj-tags"><span>React</span><span>TypeScript</span><span>Redux Toolkit</span><span>Django</span><span>Tailwind CSS</span><span>Figma</span><span>GitHub</span></div>
         </div>
       </div>
       <div class="proj-card reveal">
@@ -394,7 +415,7 @@
           <h4>Abidors Real Estate Platform</h4>
           <p class="proj-loc">Bulgaria</p>
           <p>A platform connecting buyers, sellers, virtual assistants, lawyers, photographers, and financial institutions, covering listing, documentation, and mortgage applications in one system.</p>
-          <p class="proj-tech">React, TypeScript, Tailwind CSS, Node.js, Figma</p>
+          <div class="proj-tags"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Node.js</span><span>Figma</span></div>
         </div>
       </div>
       <div class="proj-card reveal">
@@ -403,7 +424,7 @@
           <h4>WP Monitoring Platform</h4>
           <p class="proj-loc">Netherlands</p>
           <p>Lets WordPress site owners manage analytics, plugins, and themes for all their WordPress websites from a single dashboard, backed by a Django REST API for real-time data.</p>
-          <p class="proj-tech">React, Redux Toolkit, Django, Stripe Payment Processing, 2FA Authentication, Tailwind CSS, JWT Authentication</p>
+          <div class="proj-tags"><span>React</span><span>Redux Toolkit</span><span>Django</span><span>Stripe</span><span>2FA</span><span>Tailwind CSS</span><span>JWT</span></div>
         </div>
       </div>
       <div class="proj-card reveal">
@@ -412,7 +433,7 @@
           <h4>Powerhost Rental Management Tool</h4>
           <p class="proj-loc">Spain</p>
           <p>Helps Airbnb hosts track listing performance and grow revenue, integrating the Rentals United API and deployed to AWS via Bitbucket pipelines.</p>
-          <p class="proj-tech">Next.js, Tailwind CSS, Python, AWS, Bitbucket</p>
+          <div class="proj-tags"><span>Next.js</span><span>Tailwind CSS</span><span>Python</span><span>AWS</span><span>Bitbucket</span></div>
         </div>
       </div>
       <div class="proj-card reveal">
@@ -421,7 +442,7 @@
           <h4>3D Shoe Configurator</h4>
           <p class="proj-loc">Italy</p>
           <p>An interactive 3D product configurator enabling real-time shoe customization and visualization, enhancing the online shopping experience for the client's customers.</p>
-          <p class="proj-tech">React, TypeScript, Tailwind CSS, Three.js, React-Three-Fiber, Adobe, Blender</p>
+          <div class="proj-tags"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Three.js</span><span>React-Three-Fiber</span><span>Adobe</span><span>Blender</span></div>
         </div>
       </div>
     </div>
@@ -434,37 +455,44 @@
     <h2 class="title">Testimonials</h2>
     <div class="rule"></div>
     <p class="lede reveal">What clients have said after working together on freelance engagements.</p>
-    <div class="quote-grid">
-      <div class="quote-card reveal">
-        <p class="quote">"Japheth did an exceptional job developing React components for our project. He delivered high-quality, flawless code on time, implementing all feedback seamlessly. Highly recommended for anyone seeking a skilled React developer!"</p>
-        <div class="author">Marco Cereghino</div>
-        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Client</div>
+    <div class="testimonial-carousel reveal" id="testimonialCarousel" role="region" aria-roledescription="carousel" aria-label="Client testimonials" tabindex="0">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="quote-card">
+            <p class="quote">"Japheth did an exceptional job developing React components for our project. He delivered high-quality, flawless code on time, implementing all feedback seamlessly. Highly recommended for anyone seeking a skilled React developer!"</p>
+            <div class="author">Marco Cereghino</div>
+            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Client</div>
+          </div>
+          <div class="quote-card">
+            <p class="quote">"Japheth delivered outstanding work with incredible professionalism and code expertise. His proactive communication and timely delivery made the collaboration seamless. Highly recommended!"</p>
+            <div class="author">mitale79</div>
+            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Italy</div>
+          </div>
+          <div class="quote-card">
+            <p class="quote">"Japheth is an absolute superstar. He delivered beyond my expectations and was a pleasure to work with. Super responsive, great communication, created excellent code that instantly plugged into my system."</p>
+            <div class="author">bcny1989</div>
+            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
+          </div>
+          <div class="quote-card">
+            <p class="quote">"Japheth is very professional, and his work is of high quality. He is very reactive and always goes the extra mile to deliver the component as needed. I enjoyed collaborating with him, and I'll surely do it again."</p>
+            <div class="author">this_is_michele</div>
+            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Netherlands</div>
+          </div>
+          <div class="quote-card">
+            <p class="quote">"Very professional seller, excellent communication, 100% recommendation!"</p>
+            <div class="author">wappfactory</div>
+            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Germany</div>
+          </div>
+          <div class="quote-card">
+            <p class="quote">"Japheth was prompt in their communication and delivered exactly what I asked for by the delivery date. They will definitely be my first contact if I require assistance again."</p>
+            <div class="author">lugialord_</div>
+            <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
+          </div>
+        </div>
       </div>
-      <div class="quote-card reveal">
-        <p class="quote">"Japheth delivered outstanding work with incredible professionalism and code expertise. His proactive communication and timely delivery made the collaboration seamless. Highly recommended!"</p>
-        <div class="author">mitale79</div>
-        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Italy</div>
-      </div>
-      <div class="quote-card reveal">
-        <p class="quote">"Japheth is an absolute superstar. He delivered beyond my expectations and was a pleasure to work with. Super responsive, great communication, created excellent code that instantly plugged into my system."</p>
-        <div class="author">bcny1989</div>
-        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
-      </div>
-      <div class="quote-card reveal">
-        <p class="quote">"Japheth is very professional, and his work is of high quality. He is very reactive and always goes the extra mile to deliver the component as needed. I enjoyed collaborating with him, and I'll surely do it again."</p>
-        <div class="author">this_is_michele</div>
-        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Netherlands</div>
-      </div>
-      <div class="quote-card reveal">
-        <p class="quote">"Very professional seller, excellent communication, 100% recommendation!"</p>
-        <div class="author">wappfactory</div>
-        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; Germany</div>
-      </div>
-      <div class="quote-card reveal">
-        <p class="quote">"Japheth was prompt in their communication and delivered exactly what I asked for by the delivery date. They will definitely be my first contact if I require assistance again."</p>
-        <div class="author">lugialord_</div>
-        <div class="meta">&#9733;&#9733;&#9733;&#9733;&#9733; United States</div>
-      </div>
+      <button class="carousel-arrow prev" id="carouselPrev" aria-label="Previous testimonial">&#8249;</button>
+      <button class="carousel-arrow next" id="carouselNext" aria-label="Next testimonial">&#8250;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </div>
 </section>
@@ -519,6 +547,82 @@
       });
     }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
     els.forEach(function(el){ io.observe(el); });
+  })();
+
+  (function(){
+    var carousel = document.getElementById('testimonialCarousel');
+    var track = document.getElementById('carouselTrack');
+    if(!carousel || !track) return;
+    var dotsWrap = document.getElementById('carouselDots');
+    var prevBtn = document.getElementById('carouselPrev');
+    var nextBtn = document.getElementById('carouselNext');
+    var slides = track.children.length;
+    var index = 0;
+    var autoplayMs = 6000;
+    var timer = null;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    for(var i=0;i<slides;i++){
+      var dot = document.createElement('button');
+      dot.setAttribute('aria-label','Go to testimonial '+(i+1));
+      if(i===0) dot.classList.add('active');
+      (function(idx){
+        dot.addEventListener('click', function(){ goTo(idx); restart(); });
+      })(i);
+      dotsWrap.appendChild(dot);
+    }
+    var dots = dotsWrap.children;
+
+    function update(){
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      for(var i=0;i<dots.length;i++){
+        dots[i].classList.toggle('active', i === index);
+      }
+    }
+    function goTo(i){
+      index = (i + slides) % slides;
+      update();
+    }
+    function next(){ goTo(index + 1); }
+    function prev(){ goTo(index - 1); }
+    function stop(){
+      if(timer){ clearInterval(timer); timer = null; }
+    }
+    function start(){
+      if(reduceMotion) return;
+      stop();
+      timer = setInterval(next, autoplayMs);
+    }
+    function restart(){ stop(); start(); }
+
+    prevBtn.addEventListener('click', function(){ prev(); restart(); });
+    nextBtn.addEventListener('click', function(){ next(); restart(); });
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', start);
+    carousel.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowLeft'){ prev(); restart(); }
+      if(e.key === 'ArrowRight'){ next(); restart(); }
+    });
+
+    var touchStartX = null;
+    track.addEventListener('touchstart', function(e){
+      touchStartX = e.touches[0].clientX;
+      stop();
+    }, {passive:true});
+    track.addEventListener('touchend', function(e){
+      if(touchStartX === null) return;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if(Math.abs(dx) > 40){
+        if(dx < 0){ next(); } else { prev(); }
+      }
+      touchStartX = null;
+      start();
+    });
+
+    update();
+    start();
   })();
 </script>
 
